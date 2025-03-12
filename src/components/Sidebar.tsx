@@ -1,14 +1,13 @@
 'use client';
 
-import { cardRequests, menuItems } from '@/utils/data';
+import { menuItems } from '@/utils/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import ButtonNeutral from './button/ButtonNeutral';
 import { usePathname, useRouter } from 'next/navigation';
 import ButtonLinkNeutral from './button/ButtonLinkNeutral';
 import Search from './Search';
-import { recentCardInfoProps } from '@/utils/types';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 
 interface SidebarProps {
     show?: string;
@@ -17,18 +16,18 @@ interface SidebarProps {
   
 const Sidebar: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = () => {} }) => {
     
-    const [cards, setCards] = useState<recentCardInfoProps[]>(cardRequests);
+    // const [cards, setCards] = useState<recentCardInfoProps[]>(cardRequests);
     
     const handleSearch = useCallback((text: string) => {
-    const filteredCards = cardRequests.filter((card) => {
-        if (card.transaction) {
-        return (card.transaction.toLowerCase().includes(text.toLowerCase()));
-        }
-    });
-    
-    setCards(filteredCards);
+        // const filteredCards = cardRequests.filter((card) => {
+        //     if (card.transaction) {
+        //     return (card.transaction.toLowerCase().includes(text.toLowerCase()));
+        //     }
+        // });
+        
+        // setCards(filteredCards);
+        console.log(text);
     }, []);
-    console.log(cards);
     
     const pathName = usePathname();
     // console.log(pathName);
