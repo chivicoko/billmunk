@@ -72,8 +72,8 @@ const SidebarRight: React.FC = () => {
                     </div>
 
                     {budgets.map(budget => 
-                        <div key={budget.id} className={`flex items-center justify-between bg-${budget.overallColor}-50 w-full my-4 py-3 px-4 rounded-radius-8`}>
-                            <div className={`rounded-full p-2 bg-${budget.overallColor}-300`}>
+                        <div key={budget.id} className={`flex items-center justify-between ${budget.overallColor === 'green' ? 'bg-green-50' : budget.overallColor === 'blue' ? 'bg-blue-50' : 'bg-red-50'} w-full my-4 py-3 px-4 rounded-radius-8`}>
+                            <div className={`rounded-full p-2 ${budget.overallColor === 'green' ? 'bg-green-300' : budget.overallColor === 'blue' ? 'bg-blue-300' : 'bg-red-300'} `}>
                                 <div className={`relative size-4 rounded-full bg-${budget.overallColor}-300`}>
                                     <Image
                                         src={`/icons/${budget.icon}`}
@@ -88,11 +88,11 @@ const SidebarRight: React.FC = () => {
 
                             <div className="w-[85%]">
                                 <p className='flex items-center justify-between pb-2'>
-                                    <span className={`text-${budget.overallColor}-800 text-sm`}>{budget.text1}</span>
-                                    <span className={`text-${budget.overallColor}-700 text-sm`}>{budget.text2}</span>
+                                    <span className={`${budget.overallColor === 'green' ? 'text-green-800' : budget.overallColor === 'blue' ? 'text-blue-800' : 'text-red-800'} text-sm`}>{budget.text1}</span>
+                                    <span className={`${budget.overallColor === 'green' ? 'text-green-700' : budget.overallColor === 'blue' ? 'text-blue-700' : 'text-red-700'} text-sm`}>{budget.text2}</span>
                                 </p>
-                                <span className={`bg-${budget.overallColor}-200 rounded-full flex items-center justify-start`}>
-                                    <span className={`bg-${budget.overallColor}-700 px-2 py-1 w-[30%] rounded-full flex items-center justify-center`}></span>
+                                <span className={`${budget.overallColor === 'green' ? 'bg-green-200' : budget.overallColor === 'blue' ? 'bg-blue-200' : 'bg-red-200'} rounded-full flex items-center justify-start`}>
+                                    <span className={`${budget.overallColor === 'green' ? 'bg-green-700' : budget.overallColor === 'blue' ? 'bg-blue-700' : 'bg-red-700'} px-2 py-1 w-[30%] rounded-full flex items-center justify-center`}></span>
                                 </span>
                             </div>
                         </div>
