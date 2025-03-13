@@ -79,7 +79,7 @@ const SidebarRight: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = 
                     </div>
 
                     {budgets.map(budget => 
-                        <div key={budget.id} className={`flex items-center justify-between ${budget.overallColor === 'green' ? 'bg-green-50' : budget.overallColor === 'blue' ? 'bg-blue-50' : 'bg-red-50'} w-full my-4 py-3 px-4 rounded-radius-8`}>
+                        <div key={budget.id} className={`flex items-center justify-between gap-3 ${budget.overallColor === 'green' ? 'bg-green-50' : budget.overallColor === 'blue' ? 'bg-blue-50' : 'bg-red-50'} w-full my-4 p-3 rounded-radius-8`}>
                             <div className={`rounded-full p-2 ${budget.overallColor === 'green' ? 'bg-green-300' : budget.overallColor === 'blue' ? 'bg-blue-300' : 'bg-red-300'} `}>
                                 <div className={`relative size-4 rounded-full bg-${budget.overallColor}-300`}>
                                     <Image
