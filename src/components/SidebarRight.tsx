@@ -2,11 +2,7 @@ import Image from 'next/image';
 import ButtonNeutral from './button/ButtonNeutral';
 import { budgets } from '@/utils/data';
 
-interface SidebarProps {
-    show?: string;
-}
-  
-const SidebarRight: React.FC<SidebarProps> = ({ show = 'hidden' }) => {
+const SidebarRight: React.FC = () => {
     
     return (
         <nav className={`top-0 left-0 z-50 lg:z-auto w-4/6 sm:w-3/6 lg:w-[23%] h-full min-h-fit`}>
