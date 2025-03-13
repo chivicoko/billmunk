@@ -15,9 +15,9 @@ const BankAccountsPieChart = () => {
   if (!isClient) return null;
 
   return (
-    <div className='pt-1 px-2 flex items-start justify-between'>
+    <div className='pt-1 px-2 flex items-start justify-between flex-wrap'>
 
-      <div className="relative flex items-center justify-center gap-6 pt-3 pb-1">
+      <div className="relative flex items-center justify-center gap-6 flex-wrap pt-3 pb-1">
         <PieChart width={200} height={200}>
           <Pie
             data={CardStatusDistribution}
@@ -40,7 +40,7 @@ const BankAccountsPieChart = () => {
         </div>
       </div>
 
-      <ButtonNeutral btnText2='+' btnText1='Add bank' classes='text-blue-700 text-sm space-x-2' btnText2Classes='text-xl' />
+      <ButtonNeutral btnText2='+' btnText1='Add bank' classes='text-blue-700 text-sm space-x-2 my-4 mx-auto md:my-0 md:mx-0' btnText2Classes='text-xl' />
     </div>
   );
 };

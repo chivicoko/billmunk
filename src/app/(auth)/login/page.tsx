@@ -8,10 +8,9 @@ import React from 'react'
 
 const LoginPage = () => {
   return (
-    <div className='h-full min-h-screen w-full flex'>
-        <div className='w-1/2 h-screen min-h-full flex items-center justify-center'>
-
-            <div className="flex flex-col gap-6 w-[50%]">
+    <div className='h-full min-h-screen w-full flex flex-col md:flex-row '>
+        <div className='order-2 md:order-1 w-full md:w-1/2 h-fit py-8 md:h-screen min-h-full flex items-center justify-center'>
+            <div className="flex flex-col gap-6 w-[90%] md:w-[50%]">
                 <div className="self-start flex items-center gap-1">
                     <span className="relative size-12 px-3">
                         <Image
@@ -46,11 +45,10 @@ const LoginPage = () => {
                     </form>
                 </div>
             </div>
-
         </div>
 
-        <div className='w-1/2 h-screen min-h-full bg-[#f3f6fa] flex items-center justify-end'>
-            <div className="relative w-[90%] h-[80vh] pl-3 border-[4px] border-r-0 border-neutral-800 rounded-s-xl">
+        <div className='order-1 md:order-2 w-full md:w-1/2 h-fit py-6 md:h-screen min-h-full bg-[#f3f6fa] flex items-center justify-end'>
+            <div className="relative w-[90%] h-[15vh] md:h-[80vh] pl-3 border-[4px] border-r-0 border-neutral-800 rounded-s-xl">
                 <Image
                     src="/images/maneja-1.png"
                     alt="Lapo's Logo"

@@ -30,9 +30,11 @@ const Dashboard = () => {
             <ButtonNeutral btnText1='View all' classes='px-3 py-2 rounded-radius-8 border text-sm' />
         </div>
 
-        <ul className="flex items-center gap-6 border-b">
-            {HomeTabs.map(tab => 
-                <li key={tab.id}><ButtonNeutral onClick={() => handleTabClick(tab.name)} btnText1={tab.name} classes={`${activeTab === tab.name ? 'text-blue-700 border-blue-700' : 'border-transparent'} text-sm hover:text-blue-700 border-b-2 hover:border-blue-700 py-1`} /></li>
+        <ul className="flex items-center gap-y-4 gap-x-4 md:gap-x-6 flex-wrap border-b">
+            {HomeTabs.map(tab =>
+                <li key={tab.id}>
+                    <ButtonNeutral onClick={() => handleTabClick(tab.name)} btnText1={tab.name} classes={`${activeTab === tab.name ? 'text-blue-700 border-blue-700' : 'border-transparent'} text-sm hover:text-blue-700 border-b-2 hover:border-blue-700 py-1`} />
+                </li>
             )}
         </ul>
 
