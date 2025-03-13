@@ -1,6 +1,7 @@
 import { cardRequests, recentCardRequestTableHead } from '@/utils/data';
+import Image from 'next/image';
 
-const RecentCardRequestList = () => {
+const BankTransactionTable = () => {
 
   return (
     <div className={`pt-1 transition-all duration-300 ease-in-out`}>
@@ -20,7 +21,20 @@ const RecentCardRequestList = () => {
                   key={item.id}
                   className={`my-2 ${item.status === 'Success' ? 'bg-green-50' : item.status === 'Declined' ? 'bg-orange-50' : 'bg-gray-50'}`}
                 >
-                  <td className={`relative 'py-[11px] text-[12px] px-2 text-center whitespace-nowrap w-2`}>{item.transaction}</td>
+                  <td className={`relative 'py-[11px] text-[12px] px-2 text-center whitespace-nowrap w-2`}>
+                    <span className='flex items-center gap-2'>
+                      <div className="relative size-7 rounded-full border">
+                        <Image
+                            src={`/images/${item.avatar}`}
+                            alt="cardinfra logo"
+                            fill
+                            className="object-cover rounded-full"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                      {item.transaction}
+                    </span>
+                  </td>
                   <td className={`relative ${+item.amount < 1000  ? 'text-orange-700' : 'text-green-700'} py-[11px] text-[12px] px-2 text-center whitespace-nowrap w-2`}>
                   {+item.amount < 1000  ? '-' : '+'} ${item.amount}
                   </td>
@@ -47,4 +61,4 @@ const RecentCardRequestList = () => {
   )
 }
 
-export default RecentCardRequestList;
+export default BankTransactionTable;

@@ -5,7 +5,7 @@ import { CardStatusDistribution, PIE_COLORS } from '@/utils/data';
 import React, { useState, useEffect } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
 
-const CardStatusPieChart = () => {
+const BankAccountsPieChart = () => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -45,4 +45,4 @@ const CardStatusPieChart = () => {
   );
 };
 
-export default CardStatusPieChart;
+export default BankAccountsPieChart;
