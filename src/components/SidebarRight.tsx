@@ -12,7 +12,7 @@ interface SidebarProps {
 const SidebarRight: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = () => {} }) => {
     
     return (
-        <nav className={`${show === 'block' ? 'fixed lg:hidden' : 'hidden'} lg:block top-0 left-0 z-50 lg:z-auto w-4/6 sm:w-3/6 lg:w-[23%] h-full min-h-fit bg-white md:bg-transparent`}>
+        <nav className={`${show === 'block' ? 'fixed md:hidden' : 'hidden'} md:block top-0 left-0 z-50 lg:z-auto w-4/6 sm:w-3/6 md:w-[33.5%] lg:w-[23%] h-full min-h-fit bg-white md:bg-transparent`}>
             <div className="relative mb-16">
                 <div className="relative w-full h-[100px]">
                     <Image
@@ -94,7 +94,7 @@ const SidebarRight: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = 
                             </div>
 
                             <div className="w-[85%]">
-                                <p className='flex items-center justify-between pb-2'>
+                                <p className='flex items-center justify-between gap-x-3 flex-wrap pb-2'>
                                     <span className={`${budget.overallColor === 'green' ? 'text-green-800' : budget.overallColor === 'blue' ? 'text-blue-800' : 'text-red-800'} text-sm`}>{budget.text1}</span>
                                     <span className={`${budget.overallColor === 'green' ? 'text-green-700' : budget.overallColor === 'blue' ? 'text-blue-700' : 'text-red-700'} text-sm`}>{budget.text2}</span>
                                 </p>

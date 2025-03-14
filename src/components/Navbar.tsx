@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="flex md:hidden items-center justify-between gap-3 z-30 py-1 md:py-2 pl-[2px] pr-3 sm:px-3 md:px-5 border-b border-customGray">
+      <nav className="flex lg:hidden items-center justify-between gap-3 z-30 py-1 md:py-2 pl-[2px] pr-3 sm:px-3 md:px-5 border-b border-customGray">
         <div className="w-full flex items-center justify-between">
           <Link href="/" className={`${pathName === '/' ? 'block' : 'hidden' } lg:hidden sm:mr-4 relative w-[138.32px] h-[45px]`}>
             <Image
