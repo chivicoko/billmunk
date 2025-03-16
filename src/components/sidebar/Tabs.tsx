@@ -30,7 +30,7 @@ const Tabs = ({start, stop, type}: TabsProps) => {
         if (activeTab) {
             setCurrentActiveTab(activeTab.title);
         }
-        console.log(currentActiveTab, currentDropdownTab)
+        // console.log(currentActiveTab, currentDropdownTab)
     }, [pathName, currentActiveTab, currentDropdownTab]);
 
     const isActivePath = (route: string | null) => {

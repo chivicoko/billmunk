@@ -5,12 +5,10 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Sidebar from './sidebar/Sidebar';
 import ButtonNeutral from './button/ButtonNeutral';
-import { usePathname } from 'next/navigation';
 import MenuIcon from './icons/MenuIcon';
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const pathName = usePathname();
   
   const closeSidebar = () => setOpen(false);
 
@@ -18,7 +16,7 @@ const Navbar: React.FC = () => {
     <>
       <nav className="flex lg:hidden items-center justify-between gap-3 z-30 py-1 md:py-2 pl-[2px] pr-3 sm:px-3 md:px-5 border-b border-customGray">
         <div className="w-full flex items-center justify-between">
-          <Link href="/" className={`${pathName === '/' ? 'block' : 'hidden' } lg:hidden sm:mr-4 relative w-[138.32px] h-[45px]`}>
+          <Link href="/" className={`lg:hidden sm:mr-4 relative w-[138.32px] h-[45px]`}>
             <Image
               src="/images/LAPO_Logo_2022-removebg-preview 1.svg"
               alt="Lapo's Logo"

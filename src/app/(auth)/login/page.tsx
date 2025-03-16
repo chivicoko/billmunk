@@ -4,10 +4,15 @@ import AuthPagesHeader from '@/components/AuthPagesHeader';
 import AuthPagesRightSide from '@/components/AuthPagesRightSide';
 import ButtonLinkOne from '@/components/button/ButtonLinkOne';
 import InputOne from '@/components/inputs/InputOne';
+import { Key, RemoveRedEyeOutlined } from '@mui/icons-material';
 import Link from 'next/link';
-import React from 'react'
+import React, { useState } from 'react'
 
 const LoginPage = () => {
+    const [isPasswordOpen, setIsPasswordOpen] = useState<boolean>(false);
+
+    const handlePasswordToggle = () => setIsPasswordOpen(prev => !prev);
+
   return (
     <div className='h-full min-h-screen w-full flex flex-col md:flex-row '>
         <div className='order-2 md:order-1 w-full md:w-1/2 h-fit py-8 md:h-screen min-h-full flex items-center justify-center'>
@@ -25,7 +30,16 @@ const LoginPage = () => {
                             <InputOne onChange={(e) => e.target.value} value={''} label='Email' name="email" placeholderText='Enter your email' />
                         </div>
                         <div className="w-full mb-3">
-                            <InputOne onChange={(e) => e.target.value} value={''} label='Password' name="password" placeholderText='Enter your password' />
+                            <InputOne
+                                icon2={!isPasswordOpen ? <RemoveRedEyeOutlined style={{fontSize: '19px', }} /> : <Key style={{fontSize: '19px', }} />}
+                                onChange={(e) => e.target.value}
+                                onClick={handlePasswordToggle}
+                                value={''}
+                                type={!isPasswordOpen ? 'password' : 'text'}
+                                label='Password'
+                                name="password"
+                                placeholderText='Enter your password'
+                            />
                         </div>
 
                         <div className='my-2 w-full flex items-center justify-end'>
