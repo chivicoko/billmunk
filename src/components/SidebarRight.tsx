@@ -78,7 +78,7 @@ const SidebarRight: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = 
                         <ButtonNeutral btnText2='...' btnText1='' classes='text-sm space-x-2' btnText2Classes='text-lg' />
                     </div>
 
-                    {budgets.map(budget => 
+                    {budgets.slice(0,2).map(budget => 
                         <div key={budget.id} className={`flex items-center justify-between gap-3 ${budget.overallColor === 'green' ? 'bg-green-50' : budget.overallColor === 'blue' ? 'bg-blue-50' : 'bg-red-50'} w-full my-4 p-3 rounded-radius-8`}>
                             <div className={`rounded-full p-2 ${budget.overallColor === 'green' ? 'bg-green-300' : budget.overallColor === 'blue' ? 'bg-blue-300' : 'bg-red-300'} `}>
                                 <div className={`relative size-4 rounded-full bg-${budget.overallColor}-300`}>

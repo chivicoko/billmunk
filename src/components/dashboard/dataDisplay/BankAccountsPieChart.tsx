@@ -3,6 +3,7 @@
 import ButtonNeutral from '@/components/button/ButtonNeutral';
 import { CardStatusDistribution, PIE_COLORS } from '@/utils/data';
 import React, { useState, useEffect } from 'react';
+import CountUp from 'react-countup';
 import { Cell, Pie, PieChart } from 'recharts';
 
 const BankAccountsPieChart = () => {
@@ -15,9 +16,9 @@ const BankAccountsPieChart = () => {
   if (!isClient) return null;
 
   return (
-    <div className='pt-1 px-2 flex items-start justify-between flex-wrap'>
+    <div className='pt-2 md:pt-1 px-2 md:pb-2 flex items-start justify-between flex-wrap'>
 
-      <div className="relative flex items-center justify-center gap-6 flex-wrap pt-3 pb-1">
+      <div className="relative flex items-center justify-center gap-2 md:gap-6 flex-wrap md:pt-3 md:pb-1">
         <PieChart width={200} height={200}>
           <Pie
             data={CardStatusDistribution}
@@ -34,9 +35,11 @@ const BankAccountsPieChart = () => {
         </PieChart>
 
         <div className="">
-          <p className='mb-6'>2 Bank Accounts</p>
+          <p className='mb-2 md:mb-6'>2 Bank Accounts</p>
           <p className='text-textGray text-sm'>Total Current Balance</p>
-          <p className='text-textGrayDarker text-xl font-semibold'>$ 2,698.12</p>
+          <p className='text-textGrayDarker text-xl font-semibold'>
+            $ <CountUp start={0} end={2698435} duration={2} delay={0} />
+          </p>
         </div>
       </div>
 

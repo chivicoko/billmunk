@@ -3,16 +3,13 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar/Sidebar';
 import ButtonNeutral from './button/ButtonNeutral';
 import { usePathname } from 'next/navigation';
 import MenuIcon from './icons/MenuIcon';
-// import SidebarRight from './SidebarRight';
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
-  // const [openRight, setOpenRight] = useState(false);
-
   const pathName = usePathname();
   
   const closeSidebar = () => setOpen(false);
@@ -35,7 +32,6 @@ const Navbar: React.FC = () => {
 
         {/* Hamburger menu */}
         <ButtonNeutral onClick={() => setOpen(!open)} icon1={<MenuIcon />} classes='lg:hidden text-gray-700 focus:outline-primary' />
-        {/* <ButtonNeutral onClick={() => setOpenRight(!openRight)} icon1={<MenuIcon />} classes='lg:hidden text-gray-700 focus:outline-primary' /> */}
       </nav>
 
       {open && (
@@ -48,17 +44,6 @@ const Navbar: React.FC = () => {
           />
         </>
       )}
-
-      {/* {openRight && (
-        <>
-          <SidebarRight show="block" closeSidebar={closeSidebar} />
-
-          <div
-            onClick={closeSidebar}
-            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-          />
-        </>
-      )} */}
     </>
   );
 };

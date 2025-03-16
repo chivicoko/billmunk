@@ -1,11 +1,33 @@
+'use client';
+
+import FullPagination from '@/components/pagination/FullPagination';
 import { cardRequests, recentCardRequestTableHead } from '@/utils/data';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const BankTransactionTable = () => {
+  // ============== pagination =================
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [transactionPerPage, settransactionPerPage] = useState<number>(4);
+
+  const indexOfLastProduct = currentPage * transactionPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - transactionPerPage;
+  const currentRequestCards = cardRequests.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(cardRequests.length / transactionPerPage);
+  
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  
+  const handleRowsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    settransactionPerPage(Number(event.target.value));
+    setCurrentPage(1);
+  };
+  // ============== pagination =================
 
   return (
-    <div className={`pt-1 transition-all duration-300 ease-in-out`}>
-      <div className="flex items-center justify-between gap-6 pt-4 pb-4">
+    <div className={`transition-all duration-300 ease-in-out`}>
+      <div className="flex flex-col items-center justify-between gap-1">
+        {cardRequests && cardRequests.length > 0 ?
+        <>
         <div className="w-full overflow-x-scroll custom-scrollbar">
           <table className="min-w-full custom-scrollbar">
             <thead className="bg-transparent border-b border-customGray">
@@ -16,7 +38,7 @@ const BankTransactionTable = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-neutral-200">
-              {cardRequests.map(item => (
+              {currentRequestCards.map(item => (
                 <tr
                   key={item.id}
                   className={`my-2 ${item.status === 'Success' ? 'bg-green-50' : item.status === 'Declined' ? 'bg-orange-50' : 'bg-gray-50'}`}
@@ -56,6 +78,19 @@ const BankTransactionTable = () => {
             </tbody>
           </table>
         </div>
+        
+        <FullPagination
+          transactionPerPage={transactionPerPage}
+          handleRowsPerPageChange={handleRowsPerPageChange}
+          totalPages={totalPages}
+          totalTransactions={cardRequests.length}
+          paginate={paginate}
+          currentPage={currentPage}
+         />
+        </>
+        : 
+        <div className='text-center text-xl text-gray-600'>No Products found</div>}
+        
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ import InputOne from '@/components/inputs/InputOne';
 import Link from 'next/link';
 import React from 'react'
 
-const LoginPage = () => {
+const ChangePasswordPage = () => {
   return (
     <div className='h-full min-h-screen w-full flex flex-col md:flex-row '>
         <div className='order-2 md:order-1 w-full md:w-1/2 h-fit py-8 md:h-screen min-h-full flex items-center justify-center'>
@@ -15,23 +15,20 @@ const LoginPage = () => {
                 <AuthPagesHeader />
 
                 <div className="self-start">
-                    <h1 className='text-2xl font-semibold'>Log in</h1>
-                    <p className='text-base'>Welcome back! Please enter your details.</p>
+                    <h1 className='text-2xl font-semibold'>Change password</h1>
+                    <p className='text-base'>Please enter your new password.</p>
                 </div>
 
                 <div className="w-full">
                     <form className="w-full space-y-3">
-                        <div className="w-full">
-                            <InputOne onChange={(e) => e.target.value} value={''} label='Email' name="email" placeholderText='Enter your email' />
-                        </div>
                         <div className="w-full mb-3">
                             <InputOne onChange={(e) => e.target.value} value={''} label='Password' name="password" placeholderText='Enter your password' />
                         </div>
-
-                        <div className='my-2 w-full flex items-center justify-end'>
-                            <Link href='/forgot-password' className='text-red-600 text-sm'>Forgot password</Link>
+                        <div className="w-full mb-3">
+                            <InputOne onChange={(e) => e.target.value} value={''} label='Confirm Password' name="confirmPassword" placeholderText='Confirm your password' />
                         </div>
-                        <ButtonLinkOne href='/' classes='py-2 px-16 w-full' btnText1='Login' />
+
+                        <ButtonLinkOne href='/login' classes='py-2 px-16 w-full' btnText1='Change password' />
                         
                         <p className='text-center text-sm'>Don&apos;t have an account? <Link href='/register' className='text-blue-600'>Sign up</Link></p>
                     </form>
@@ -44,4 +41,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage;
+export default ChangePasswordPage;

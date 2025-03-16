@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import './globals.css';
 
 export const metadata = {
-  title: "Lapo-app | Good web application.",
-  description: "Lapo-app is good.",
+  title: "Payflex | Payflex Banking App",
+  description: "Payflex is a modern Banking platform for everyone.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

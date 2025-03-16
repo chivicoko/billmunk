@@ -1,10 +1,207 @@
 
 export const menuItems = [
-    {id: 1, title: "Home", url: '/', icon: 'home.svg', ref: 'Home' },
-    {id: 2, title: "My Banks", url: '/my-banks', icon: 'building-06.svg', ref: 'MyBanks' },
-    {id: 3, title: "Transaction History", url: '/transfer-history', icon: 'user-shield-01.svg', ref: 'TransactionHistory' },
-    {id: 4, title: "Payment Transfer", url: '/payment-transfer', icon: 'user-group.svg', ref: 'PaymentTransfer' },
-    {id: 5, title: "Connect Bank", url: '/connect-bank', icon: 'setting-05.svg', ref: 'ConnectBank' },
+    {
+        id: 1,
+        title: "Dashboard",
+        url: '/',
+        icon: 'home.svg',
+        dropdownMenu: [],
+    },
+    {
+        id: 2,
+        title: "Transfer",
+        url: '',
+        icon: 'layers-three-01.svg',
+        dropdownMenu: [
+            {
+                id: 1,
+                title: 'NGN - NGN Transfer',
+                url: '/ngn-ngn-transfer'
+            },
+            {
+                id: 2,
+                title: 'NGN - Foreign Transfer',
+                url: '/ngn-foreign-transfer'
+            },
+        ],
+    },
+    {
+        id: 3,
+        title: "VTU Payment",
+        url: 'vtu-payment',
+        icon: 'credit-card-pos.svg',
+        dropdownMenu: [
+            {
+                id: 1,
+                title: 'Buy Airtime',
+                url: '/buy-airtime'
+            },
+            {
+                id: 2,
+                title: 'Buy Data',
+                url: '/buy-data'
+            },
+            {
+                id: 3,
+                title: 'Buy Bulk Data',
+                url: '/buy-bulk-data'
+            },
+            {
+                id: 4,
+                title: 'Fetch Airtime Pin',
+                url: '/fetch-airtime-pin'
+            },
+            {
+                id: 5,
+                title: 'Sell Airtime',
+                url: '/sell-airtime'
+            },
+            {
+                id: 6,
+                title: 'Fund Wallet',
+                url: '/fund-wallet'
+            },
+            {
+                id: 7,
+                title: 'Transaction History',
+                url: '/transaction-history'
+            },
+        ],
+    },
+    {
+        id: 4,
+        title: "Data Menu",
+        url: '',
+        icon: 'setting-05.svg',
+        dropdownMenu: [
+            {
+                id: 1,
+                title: 'Data Pricing',
+                url: '/data-pricing'
+            },
+            {
+                id: 2,
+                title: 'MTN Data Plans',
+                url: '/mtn-data-plans'
+            },
+            {
+                id: 3,
+                title: 'Airtel Data Plans',
+                url: '/airtel-data-plans'
+            },
+            {
+                id: 4,
+                title: 'Glo Data Plans',
+                url: '/glo-data-plans'
+            },
+            {
+                id: 5,
+                title: '9Mobile Data Plans',
+                url: '/9mobile-data-plans'
+            },
+        ],
+    },
+    {
+        id: 5,
+        title: "Bills Payment",
+        url: '',
+        icon: 'credit-card-accept.svg',
+        dropdownMenu: [
+            {
+                id: 1,
+                title: 'DSTV',
+                url: '/dstv'
+            },
+            {
+                id: 2,
+                title: 'GOTV',
+                url: '/gotv'
+            },
+            {
+                id: 3,
+                title: 'STARTIMES',
+                url: '/startimes'
+            },
+            {
+                id: 4,
+                title: 'WAEC PINS',
+                url: '/waec-pins'
+            },
+            {
+                id: 5,
+                title: 'ELECTRICITY',
+                url: '/electricity'
+            },
+            {
+                id: 6,
+                title: 'SPORTS AND BETTING',
+                url: '/sports-and-betting'
+            },
+        ],
+    },
+    {
+        id: 6,
+        title: "Connect Bank",
+        url: '/connect-bank',
+        icon: 'chart-bar-line.svg',
+        dropdownMenu: [],
+    },
+    {
+        id: 7,
+        title: "Refer and Earn",
+        url: '/refer-and-earn',
+        icon: 'user-group.svg',
+        dropdownMenu: [],
+    },
+    {
+        id: 8,
+        title: "Account",
+        url: '',
+        icon: '',
+        dropdownMenu: [
+            {
+                id: 1,
+                title: 'Profile',
+                url: '/profile'
+            },
+            {
+                id: 2,
+                title: 'Profile Settings',
+                url: '/profile-settings'
+            },
+            {
+                id: 3,
+                title: 'KYC Compliance',
+                url: '/kyc-compliance'
+            },
+            {
+                id: 4,
+                title: 'Verification Status',
+                url: '/verification-status'
+            },
+        ],
+    },
+    {
+        id: 9,
+        title: "API Docs",
+        url: '/api-docs',
+        icon: '',
+        dropdownMenu: [],
+    },
+    {
+        id: 10,
+        title: "Join WhatsApp group",
+        url: '/whatsapp',
+        icon: '',
+        dropdownMenu: [],
+    },
+    {
+        id: 11,
+        title: "Contact Support",
+        url: '/contact-support',
+        icon: '',
+        dropdownMenu: [],
+    },
 ];
 
 export const CardStatusDistribution = [
@@ -16,12 +213,6 @@ export const CardStatusDistribution = [
 ];
   
 export const PIE_COLORS = ['#1d4ed8', '#3b82f6', '#60a5fa', '#93c5fd', '#dbeafe'];
-
-export const HomeTabs = [
-    {id: 1, name: 'Chase Bank' },
-    {id: 2, name: 'Bank of America' },
-    {id: 3, name: 'First Platypus Bank' },
-];
 
 export const recentCardRequestTableHead = [
     {id: 1, title: "Transaction"},
