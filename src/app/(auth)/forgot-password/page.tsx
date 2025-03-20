@@ -1,18 +1,40 @@
 "use client"
 
+import Loading from '@/app/loading';
 import AuthPagesHeader from '@/components/AuthPagesHeader';
 import AuthPagesRightSide from '@/components/AuthPagesRightSide';
-import ButtonLinkOne from '@/components/button/ButtonLinkOne';
 import ButtonOne from '@/components/button/ButtonOne';
 import InputOne from '@/components/inputs/InputOne';
+// import OTPConfirmModal from '@/components/OTPConfirmModal';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
+const OTPConfirmModal = dynamic(() => import("@/components/OTPConfirmModal"), {
+    loading: () => <Loading />,
+  });
+
 const ForgotPasswordPage = () => {
     const [isOTPOpen, setIsOTPOpen] = useState<boolean>(false);
-
+    const [emailAddress, setEmailAddress] = useState<string>('');
+    const [error, setError] = useState<string>('');
+    
     const openOTP = () => {
-        setIsOTPOpen(prev => !prev);
+        if (!emailAddress) {
+            setError('Enter the email address you registered with');
+            return;
+        } else if (emailAddress.length < 4 || !emailAddress.includes('@')) {
+            setError('Invalid email address');
+            return;
+        } else {
+            setError('');
+            setIsOTPOpen(prev => !prev);
+        }
+    };
+    
+    const cancelEmailVerification = () => {
+        setError('');
+        setIsOTPOpen(false);
     };
 
   return (
@@ -31,41 +53,19 @@ const ForgotPasswordPage = () => {
                         <form className="w-full space-y-3">
                             <div className="w-full flex items-center gap-2">
                                 <div className="w-[80%]">
-                                    <InputOne onChange={(e) => e.target.value} value={''} name="email" placeholderText='Enter your email' />
+                                    <InputOne required={true} onChange={(e) => setEmailAddress(e.target.value)} value={''} name="email" placeholderText='Enter your email' />
                                 </div>
                                 
                                 <ButtonOne onClick={openOTP} classes='py-2 px-2 w-[20%] text-sm rounded-' btnText1='Verify' />
                             </div>
                             
+                            {error && <p className='text-center text-xs text-red-700'>{error}</p>}
                             <p className='text-center text-sm'>Don&apos;t have an account? <Link href='/register' className='text-blue-600'>Sign up</Link></p>
                         </form>
                     </div>
                 </div>
                     
-                <div className={`${isOTPOpen ? 'translate-y-0' : 'translate-y-full'} transition-all duration-500 ease-in-out flex flex-col gap-6 w-[90%] md:w-[50%] h-1/2 mx-auto`}>
-                    <div className="w-full mx-auto py-16">
-                        <form className="w-full space-y-3">
-                            <p className='text-center font-semibold'>Enter OTP</p>
-                            <div className="w-full flex items-center justify-center gap-2 py-2">
-                                <div className="w-[10%] pl-1 font-bold">
-                                    <InputOne onChange={(e) => e.target.value} value={''} />
-                                </div>
-                                <div className="w-[10%] pl-1 font-bold">
-                                    <InputOne onChange={(e) => e.target.value} value={''} />
-                                </div>
-                                <div className="w-[10%] pl-1 font-bold">
-                                    <InputOne onChange={(e) => e.target.value} value={''} />
-                                </div>
-                                <div className="w-[10%] pl-1 font-bold">
-                                    <InputOne onChange={(e) => e.target.value} value={''} />
-                                </div>
-                                
-                            </div>
-                            
-                            <ButtonLinkOne href='/change-password' classes='py-2 px-2 w-full text-sm rounded-' btnText1='Send' />
-                        </form>
-                    </div>
-                </div>
+                {isOTPOpen && <OTPConfirmModal handleModalToggle={openOTP} cancelEmailVerification={cancelEmailVerification}  emailAddress={emailAddress} />}
             </div>
 
             <AuthPagesRightSide />

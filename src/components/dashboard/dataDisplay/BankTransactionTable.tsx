@@ -1,14 +1,42 @@
 'use client';
 
 import FullPagination from '@/components/pagination/FullPagination';
-import { cardRequests, recentCardRequestTableHead } from '@/utils/data';
+import { cardRequests, recentCardRequestTableHead } from '../../../../data';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const BankTransactionTable = () => {
   // ============== pagination =================
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [transactionPerPage, settransactionPerPage] = useState<number>(4);
+  const [transactionPerPage, setTransactionPerPage] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => { 
+      if (window.innerWidth <= 640) {
+        setTransactionPerPage(2);
+      } else {
+        if (window.innerHeight <= 731) {
+          setTransactionPerPage(6);
+        } else if (window.innerHeight <= 810) {
+          setTransactionPerPage(7);
+        } else if (window.innerHeight <= 1180) {
+          setTransactionPerPage(10)
+        // } else if (window.innerHeight <= 1085) {
+        //   setTransactionPerPage(8)
+        // } else if (window.innerHeight <= 1180) {
+        //   setTransactionPerPage(10)
+        } else {
+          setTransactionPerPage(15);
+        }
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [transactionPerPage]);
+
 
   const indexOfLastProduct = currentPage * transactionPerPage;
   const indexOfFirstProduct = indexOfLastProduct - transactionPerPage;
@@ -18,7 +46,7 @@ const BankTransactionTable = () => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   
   const handleRowsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    settransactionPerPage(Number(event.target.value));
+    setTransactionPerPage(Number(event.target.value));
     setCurrentPage(1);
   };
   // ============== pagination =================
@@ -33,7 +61,7 @@ const BankTransactionTable = () => {
             <thead className="bg-transparent border-b border-customGray">
               <tr className="bg-neutral-100">
                 {recentCardRequestTableHead.map(item => (
-                  <th key={item.id} className={`py-[10px] text-[13px] whitespace-nowrap px-2 text-center text-textGray capitalize tracking-wider`}>{item.title}</th>
+                  <th key={item.id} className={`py-[10px] text-[13px] whitespace-nowrap px-2 ${item.title === 'Transaction' ? 'text-start' : 'text-center'} text-textGray capitalize tracking-wider`}>{item.title}</th>
                 ))}
               </tr>
             </thead>
@@ -90,7 +118,6 @@ const BankTransactionTable = () => {
         </>
         : 
         <div className='text-center text-xl text-gray-600'>No Products found</div>}
-        
       </div>
     </div>
   )

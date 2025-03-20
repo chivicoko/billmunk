@@ -1,2 +1,3 @@
+# payflex-frontend
 
-# lapo-app
+This is the frontend codebase of Payflex
