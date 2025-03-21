@@ -10,13 +10,9 @@ import OTPConfirmModal from "@/components/OTPConfirmModal";
 import { registerSchema, RegisterType } from "@/features/auth/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Toaster, toast } from "react-hot-toast";
-
-const Input = ({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) => {
-  return <input {...props} />;
-};
 
 const RegisterPage = ({ data }: { data?: any }) => {
   const [isOTPOpen, setIsOTPOpen] = useState(false);
@@ -73,10 +69,6 @@ const RegisterPage = ({ data }: { data?: any }) => {
     alert("something hapened");
     console.log(data);
   });
-
-  useEffect(() => {
-    console.log({ errors, d: getValues() });
-  }, [errors]);
 
   return (
     <div className="h-full min-h-screen w-full flex flex-col md:flex-row ">
