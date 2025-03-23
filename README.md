@@ -1,3 +1,3 @@
-# payflex-frontend
+# NextBit
 
-This is the frontend codebase of Payflex
+This is the frontend codebase of NextBit
