@@ -1,6 +1,6 @@
 'use client';
 
-import { registerUser } from '@/lib/api';
+import { registerUser } from '@/features/auth/actions';
 import { useState } from 'react';
 
 const RegisterationForm = () => {

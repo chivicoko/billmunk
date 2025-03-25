@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react'
 import InputOne from '../inputs/InputOne'
-import { availableBankOptions } from '../../../data';
+import { availableBankOptions } from '../../data/base';
 import TextAreaTwo from '../inputs/TextAreaTwo';
 import ButtonNeutral from '../button/ButtonNeutral';
 import Loading from '@/app/loading';
@@ -14,7 +16,7 @@ const NGNToNGN = () => {
   // const [bankOptions, setBankOptions] = useState<string[]>([]);
   const [accountName, setAccountName] = useState<string>('');
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading] = useState<boolean>(false);
   const [accountNumber, setAccountNumber] = useState<string>('');
   const [amount, setAmount] = useState<number | null>(null);
   const [accountBalance] = useState<number>(2698435);

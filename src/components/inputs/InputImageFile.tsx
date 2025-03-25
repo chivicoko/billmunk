@@ -27,7 +27,7 @@ type InputProps = {
   checked?: boolean;
   error?: FieldError;
   defaultValue?: string;
-  register: any;
+  // register: any;
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -56,7 +56,7 @@ const InputImageFile: React.FC<InputProps> = ({
   checked = false,
   error,
   defaultValue,
-  register,
+  // register,
   inputProps,
   onClick = () => {},
   onChange = () => {},
@@ -94,7 +94,7 @@ const InputImageFile: React.FC<InputProps> = ({
           onChange={onChange}
           defaultValue={defaultValue}
           {...inputProps}
-          {...register(name)}
+          // {...register(name)}
           className={`${inputClasses} ${disabled ? 'opacity-40 cursor-not-allowed' : ''}`}
         />
         {icon2 && <button type="button" onClick={onClick} className="border-l px-2">{icon2}</button>}

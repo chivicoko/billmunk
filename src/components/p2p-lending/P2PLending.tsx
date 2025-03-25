@@ -1,4 +1,6 @@
-import { p2pLendingTabs } from '../../../data';
+'use client';
+
+import { p2pLendingTabs } from '../../data/base';
 import React, { useState } from 'react'
 import ButtonOne from '../button/ButtonOne';
 import ButtonNeutral from '../button/ButtonNeutral';
@@ -11,9 +13,7 @@ import { Toaster, toast } from 'react-hot-toast';
 const P2PLending = () => {
   const [activeTab, setActiveTab] = useState<string>('Lend');
 
-  const handleTabToggle = (tab: string) => {
-    setActiveTab(tab);
-  };
+  const handleTabToggle = (tab: string) => setActiveTab(tab);
 
   const handleDropDownTabClick = (tab: string) => {
     if (tab === 'Accept') {

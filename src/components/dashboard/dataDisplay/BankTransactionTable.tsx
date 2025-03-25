@@ -1,7 +1,7 @@
 'use client';
 
 import FullPagination from '@/components/pagination/FullPagination';
-import { cardRequests, recentCardRequestTableHead } from '../../../../data';
+import { cardRequests, recentCardRequestTableHead } from '../../../data/base';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -16,17 +16,17 @@ const BankTransactionTable = () => {
         setTransactionPerPage(2);
       } else {
         if (window.innerHeight <= 731) {
-          setTransactionPerPage(6);
+          setTransactionPerPage(4);
         } else if (window.innerHeight <= 810) {
-          setTransactionPerPage(7);
+          setTransactionPerPage(5);
         } else if (window.innerHeight <= 1180) {
-          setTransactionPerPage(10)
+          setTransactionPerPage(8)
         // } else if (window.innerHeight <= 1085) {
         //   setTransactionPerPage(8)
         // } else if (window.innerHeight <= 1180) {
         //   setTransactionPerPage(10)
         } else {
-          setTransactionPerPage(15);
+          setTransactionPerPage(13);
         }
       }
     };
@@ -45,10 +45,10 @@ const BankTransactionTable = () => {
   
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   
-  const handleRowsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTransactionPerPage(Number(event.target.value));
-    setCurrentPage(1);
-  };
+  // const handleRowsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setTransactionPerPage(Number(event.target.value));
+  //   setCurrentPage(1);
+  // };
   // ============== pagination =================
 
   return (
@@ -108,10 +108,10 @@ const BankTransactionTable = () => {
         </div>
         
         <FullPagination
-          transactionPerPage={transactionPerPage}
-          handleRowsPerPageChange={handleRowsPerPageChange}
+          // transactionPerPage={transactionPerPage}
+          // handleRowsPerPageChange={handleRowsPerPageChange}
+          // totalTransactions={cardRequests.length}
           totalPages={totalPages}
-          totalTransactions={cardRequests.length}
           paginate={paginate}
           currentPage={currentPage}
          />

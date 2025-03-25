@@ -1,6 +1,6 @@
 'use client';
 
-import { rowDropdownMenu } from '../../../data';
+import { rowDropdownMenu } from '../../data/base';
 import ButtonNeutral from '../button/ButtonNeutral';
 // import { useRouter } from 'next/navigation';
 
