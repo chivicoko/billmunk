@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = () =>
                     <Link href="/" className="flex items-center gap-1">
                         <div className="relative size-14 px-3 rounded-full">
                             <Image
-                                src="/images/PayFlex-Logo.jpg"
+                                src="/images/logo.jpg"
                                 alt="PayFlex's Logo"
                                 fill
                                 priority
@@ -51,7 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = () =>
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         </div>
-                        <p className="font-semibold text-3xl lg:text-4xl">PayFlex</p>
+                        <p className="font-semibold text-3xl lg:text-4xl">BillMunk</p>
                     </Link>
                     
                     <div className="flex-1 flex flex-col items-start justify-between gap-5">

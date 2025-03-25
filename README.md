@@ -1,3 +1,4 @@
-# NextBit
+# BillMunk
 
-This is the frontend codebase of NextBit
+This is the frontend codebase of BillMunk
+
