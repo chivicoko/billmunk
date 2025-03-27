@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   const {loggedInUser} = useGeneralData();
 
   useEffect(() => {
-      setFirstName(loggedInUser.first_name);
+      setFirstName(loggedInUser.first_name || 'Victor');
   }, [loggedInUser.first_name]);
   
   const closeSidebar = () => setOpen(false);
@@ -28,17 +28,17 @@ const Navbar: React.FC = () => {
           {/* <Link href="/" className={`lg:hidden sm:mr-4 relative w-16 h-[35px] sm:w-20 sm:h-[40px] md:w-28 md:h-[45px]`}>
               <div className="relative size-14 px-3 rounded-full">
                   <Image
-                      src="/images/logo.jpg"
-                      alt="BillMunk's Logo"
+                      src="/images/PayFlex-Logo.jpg"
+                      alt="PayFlex's Logo"
                       fill
                       priority
                       className="object-contai rounded-full"
                       sizes="(max-width: 768px) 100vw, 50vw"
                   />
               </div>
-              <p className="font-semibold md:text-3xl lg:text-4xl hidden md:inline">BillMunk</p>
+              <p className="font-semibold md:text-3xl lg:text-4xl hidden md:inline">PayFlex</p>
           </Link> */}
-          <h1 className='text-base md:text-xl font-semibold py-1'>Hi, <span className='text-blue-700'>{firstName || 'Victor'}</span></h1>
+          <h1 className='text-base md:text-xl font-semibold py-1'>Hi, <span className='text-blue-700'>{firstName}</span></h1>
         </div>
         
 

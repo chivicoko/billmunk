@@ -11,9 +11,9 @@ const UserSection = () => {
     const {loggedInUser} = useGeneralData();
 
     useEffect(() => {
-        setFirstName(loggedInUser.first_name)
-        setLastName(loggedInUser.last_name)
-        setEmail(loggedInUser.email)
+        setFirstName(loggedInUser.first_name || 'Victor');
+        setLastName(loggedInUser.last_name || 'Okoye')
+        setEmail(loggedInUser.email || 'victor.c.okoye@gmail.com');
     }, [loggedInUser.first_name, loggedInUser.last_name, loggedInUser.email]);
     
   return (
@@ -42,8 +42,8 @@ const UserSection = () => {
         </div>
 
         <div className='px-4 mb-6'>
-            <h2 className='font-semibold'>{`${firstName} ${lastName}` || 'Victor Okoye'}</h2>
-            <p className='text-textGray text-sm'>{`${email}` || 'victor.c.okoye@gmail.com'}</p>
+            <h2 className='font-semibold'>{`${firstName} ${lastName}`}</h2>
+            <p className='text-textGray text-sm'>{`${email}`}</p>
         </div>
     </div>
   )

@@ -9,7 +9,7 @@ import Tabs from './Tabs';
 import { Logout } from '@mui/icons-material';
 import { useGeneralData } from '@/context/GeneralDataContext';
 import { useEffect, useState } from 'react';
-// import { useGeneralData } from '@/context/GeneralDataContext';
+import { destroyCookie } from 'nookies';
 
 interface SidebarProps {
     show?: string;
@@ -25,13 +25,15 @@ const Sidebar: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = () =>
     const router = useRouter();
 
     useEffect(() => {
-        setFirstName(loggedInUser.first_name)
-        setLastName(loggedInUser.last_name)
-        setEmail(loggedInUser.email)
+        setFirstName(loggedInUser.first_name || 'Victor');
+        setLastName(loggedInUser.last_name || 'Okoye')
+        setEmail(loggedInUser.email || 'victor.c.okoye@gmail.com');
     }, [loggedInUser.first_name, loggedInUser.last_name, loggedInUser.email]);
 
     const logout = () => {
         dropLoggedInUserInfo();
+        destroyCookie(null, 'accessToken');
+        destroyCookie(null, 'role');
         router.push('/login');
     }
 
@@ -44,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = () =>
                         <div className="relative size-14 px-3 rounded-full">
                             <Image
                                 src="/images/logo.jpg"
-                                alt="PayFlex's Logo"
+                                alt="BillMunk's Logo"
                                 fill
                                 priority
                                 className="object-contai rounded-full"
@@ -84,8 +86,8 @@ const Sidebar: React.FC<SidebarProps> = ({ show = 'hidden', closeSidebar = () =>
                                     />
                                 </div>
                                 <div className='flex flex-col'>
-                                    <p className='capitalize text-[12px] text-textGray font-semibold'>{`${firstName} ${lastName}` || 'Victor Okoye'}</p>
-                                    <p className='text-[10px] text-textGray'>{`${email}` || 'victor.c.okoye@gmail.com'}</p>
+                                    <p className='capitalize text-[12px] text-textGray font-semibold'>{`${firstName} ${lastName}`}</p>
+                                    <p className='text-[10px] text-textGray'>{`${email}`}</p>
                                 </div>
                                 <ButtonNeutral
                                     onClick={logout}
