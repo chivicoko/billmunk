@@ -5,8 +5,8 @@ import SidebarRight from '@/components/sidebar-right/SidebarRight';
 import { ReactNode } from 'react';
 
 export const metadata = {
-  title: "Payflex | Payflex Banking App",
-  description: "Payflex is a modern Banking platform for everyone.",
+  title: "BillMunk | BillMunk Banking App",
+  description: "BillMunk is a modern Banking platform for everyone.",
 };
 
 export default function Layout({ children }: { children: ReactNode }) {

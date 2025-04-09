@@ -3,8 +3,8 @@ import './globals.css';
 import { GeneralDataProvider } from '@/context/GeneralDataContext';
 
 export const metadata = {
-  title: "Payflex | Payflex Banking App",
-  description: "Payflex is a modern Banking platform for everyone.",
+  title: "BillMunk | BillMunk Banking App",
+  description: "BillMunk is a modern Banking platform for everyone.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
